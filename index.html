@@ -1353,14 +1353,6 @@ fbq('track', 'PageView');
                 pela plataforma de checkout utilizada.
               </p>
             </details>
-
-            <details>
-              <summary>Tem garantia?</summary>
-              <p>
-                Caso a sua plataforma de pagamento ofereça garantia, você pode
-                informar o prazo aqui. Exemplo comum: 7 dias de garantia.
-              </p>
-            </details>
           </div>
         </div>
       </section>
@@ -1409,27 +1401,27 @@ fbq('track', 'PageView');
       </div>
     </footer>
 
-<script>
-  const CHECKOUT_URL = "https://pay.kiwify.com.br/Z4FPmZE";
+    <script>
+      const CHECKOUT_URL = "https://pay.kiwify.com.br/Z4FPmZE";
 
-  document.querySelectorAll(".js-buy").forEach((button) => {
-    button.addEventListener("click", function (event) {
-      event.preventDefault();
+      document.querySelectorAll(".js-buy").forEach((button) => {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
 
-      if (typeof fbq === "function") {
-        fbq("track", "InitiateCheckout", {
-          content_name: "Vida em Ordem",
-          content_type: "product",
-          value: 19.90,
-          currency: "BRL"
+          if (typeof fbq === "function") {
+            fbq("track", "InitiateCheckout", {
+              content_name: "Vida em Ordem",
+              content_type: "product",
+              value: 19.90,
+              currency: "BRL"
+            });
+          }
+
+          setTimeout(() => {
+            window.location.href = CHECKOUT_URL;
+          }, 300);
         });
-      }
-
-      setTimeout(() => {
-        window.location.href = CHECKOUT_URL;
-      }, 300);
-    });
-  });
-</script>
+      });
+    </script>
   </body>
 </html>
